@@ -1,0 +1,100 @@
+$tema: inverno;
+
+@mixin name {
+  
+}
+
+@function changeColor($type, $color) {
+
+  @if $type == light {
+    $newColor: lighten($color, 15%);
+    @return $newColor;
+  }
+
+  @else if $type == dark {
+    $newColor: darken($color, 30%);
+    @return $newColor;
+  }
+
+  @else if $type == comp {
+    $newColor: complement($color);
+    @return $newColor;
+  }
+
+  @else {
+    $newColor: $color;
+    @return $newColor;
+  }
+}
+
+
+@mixin card($bgcolor, $txtcolor, $icon, $badge: 'OK') {
+  width: 20% + 10%;
+  height: 20%;
+  display: table;
+  background-repeat: no-repeat;
+  background-color: $bgcolor;
+  background-image: url($icon);
+  background-size: 20%;
+  background-position: bottom right;
+  border-radius: 8px;
+  margin-right: 32px;
+  margin-top: 16px;
+  padding: 32px;
+  color: $txtcolor;
+  position: relative;
+  transition: all 0.2 ease-out;
+
+  &:after {
+    content: 'status: ' + $badge;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: black;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 3px;
+  }
+
+  &:hover {
+    background-color: changeColor(dark, $bgcolor);
+  }
+}
+
+@mixin btn-large($height: 60px, $fontsize: 28px) {
+  height: $height;
+  font-size: $fontsize;
+}
+
+@mixin btn($bgcolor, $txtcolor) {
+  border: none;  
+  height: 40px;
+  padding: 8px 32px;
+  border-radius: 4px;
+  background-color: $bgcolor;
+  color: $txtcolor;
+  font-size: 16px;
+}
+
+.card-positive {
+  @if $tema == inverno {
+    @include card(#3eaac8, black, 'images/espada.png');
+  } 
+
+  @else {
+    @include card(#60e860, black, 'images/espada.png');
+  }
+}
+
+.card-negative {
+  @include card(#f68e7e, black, 'images/urso-teddy.png', 'negative');
+}
+
+.btn {
+  @include btn(black, white);
+}
+
+.btn-large {
+  @include btn(black, white);
+  @include btn-large();
+}

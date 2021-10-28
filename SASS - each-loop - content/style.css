@@ -1,0 +1,27 @@
+.icon-youtube {
+  background-image: url("images/youtube.svg");
+  background-color: red;
+  width: 64px;
+  height: 64px;
+}
+
+.icon-twitter {
+  background-image: url("images/twitter.svg");
+  background-color: skyblue;
+  width: 64px;
+  height: 64px;
+}
+
+.icon-facebook {
+  background-image: url("images/facebook.svg");
+  background-color: royalblue;
+  width: 64px;
+  height: 64px;
+}
+
+.icon-linkedin {
+  background-image: url("images/linkedin.svg");
+  background-color: steelblue;
+  width: 64px;
+  height: 64px;
+}/*# sourceMappingURL=style.css.map */
